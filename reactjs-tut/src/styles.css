@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    background: violet;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+}
+p{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 4px;
+}
+
+ul{
+    width: 100%;
+    list-style: none;
+    padding:  0  0.25rem 0.25rem;
+}
+/* ul li::before{
+    content: "./200B";
+} */
+.item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    margin: 0.25rem 0 ;
+    background-color: #eee;
+}
+.item:first-child{
+    margin: 0;
+}
+.item input[type="checkbox"]{
+    text-align: center;
+    width: 2.5rem;
+    width: 48px;
+    min-width: 48px;
+    height: 2.5rem;
+    height: 48px;
+    min-height: 48px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+.item input[type="checkbox"]:focus + label{
+    text-decoration: underline;
+}
+.item > label{
+    font: size 10px;
+    flex-grow: 1;
+}
+.item svg{
+    width: 48px;
+    min-width: 48px;
+    height: 36px;
+    font-size: 1rem;
+    color: violet;
+    cursor: pointer;
+    
+}
+.item svg:focus , .item svg:hover{
+    color:red;
+    outline: none;
+}
+.emptymessage{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    color: black;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 300px;
+    
+}
+footer{
+    background: #000;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    
+}
+.addForm,.searchForm{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0.5rem 0 0;
+    padding: 0 0.5rem 0.25rem;
+    border-bottom: 1px solid #eee;
+}
+.addForm label,.searchForm label{
+    position: absolute;
+    left: -999999px;
+}
+.addForm input[type="text"]  {
+    flex-grow: 1;
+    min-width: calc(100% -50px);
+    min-height: 48px;
+    font-size: 1rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    margin-right: 0.25rem;
+    outline: none;
+}
+button{
+    height: 48px;
+    min-width: 48px;
+    border-radius: 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    background-color: violet;
+    color: white;
+    cursor: pointer;
+    margin-top: 5px;
+}
+button:focus,button:hover{
+    outline: none;
+    background: #000;
+
+}
+.searchForm input[type="text"]{
+    min-height: 48px;
+    font-size: 1rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    margin-right: 0.25rem;
+    outline: none;
+    width: 85%;
+    margin-left: 1px;
+}
