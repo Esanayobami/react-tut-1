@@ -60,8 +60,9 @@ function App() {
         setSearch={setSearch}
        />
      
-      <Content
-        items={items.filter(item =>((item.item).toLowerCase()).includes(search.toLocaleLowerCase()))}
+     <Content
+        items={items.filter(item=>((item.item).toLowerCase()).includes(search.toLowerCase()) )}
+        // please work
         setItems={setItems}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
