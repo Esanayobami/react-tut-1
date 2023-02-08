@@ -7,8 +7,10 @@ import { useState } from "react";
 import SearchItems from "./SearchItems";
 
 function App() {
+
+        // an empty array was created to prevent error
         const [items , setItems] = useState(
-        JSON.parse(localStorage.getItem("shoppinglist"))
+        JSON.parse(localStorage.getItem("shoppinglist")) || []
           
       );
       const [newItem , setNewItem] = useState(" ");
@@ -39,7 +41,7 @@ function App() {
       }
       const handleSubmit = (e) =>{
         e.preventDefault();
-        if(!newItem) return;
+        if(!newItem.trim()) return;
         addItem(newItem);
         setNewItem("");
 
@@ -59,11 +61,9 @@ function App() {
         search={search}
         setSearch={setSearch}
        />
-     
+     {/* buggyy */}
      <Content
-        items={items.filter(item=>((item.item).toLowerCase()).includes(search.toLowerCase()) )}
-        // please work
-        setItems={setItems}
+        items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
