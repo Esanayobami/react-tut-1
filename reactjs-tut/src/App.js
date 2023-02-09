@@ -71,14 +71,6 @@ function App() {
 
 
 
-
-
-
-
-
-
-
-
       <Footer length={items.length} />
 
     </div>
