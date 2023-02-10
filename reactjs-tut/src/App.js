@@ -7,15 +7,28 @@ import { useState , useEffect } from "react";
 import SearchItems from "./SearchItems";
 
 function App() {
-
-        // an empty array was created to prevent error
-      const [items , setItems] = useState(JSON.parse(localStorage.getItem("shoppingList")) || [] );
+      const API_URL = " http://localhost:3500/items";
+      const [items , setItems] = useState([]);
       const [newItem , setNewItem] = useState("");
       const [search , setSearch] = useState("");
+      // const [isLoading , setIsLoading] = useState(true);
 
     useEffect(() =>{
-      localStorage.setItem("shoppingList" , JSON.stringify(items));
-    } ,[items])
+      
+      const fetchItems = async () =>{
+        try{
+          const response = await fetch(API_URL);
+          const listItems = await response.json();
+          setItems(listItems);
+        }
+        catch(err){
+          console.log(err.stack)
+        }
+      }
+      setTimeout(()=>{
+        (async () => fetchItems())();
+        }, 2000 )
+    } ,[])
 
   
       
@@ -59,15 +72,15 @@ function App() {
         setSearch={setSearch}
        />
 
-{items.length ? (
-  <Content
-    items={items.filter((item) => (item.item.toLowerCase()).includes(search.toLowerCase()))}
-    handleCheck={handleCheck}
-    handleDelete={handleDelete}
-  />
-) : (
-  <p>No items to display</p>
-)}
+      {items.length ? (
+        <Content
+          items={items.filter((item) => (item.item.toLowerCase()).includes(search.toLowerCase()))}
+          handleCheck={handleCheck}
+          handleDelete={handleDelete}
+        />
+      ) : (
+        <p>No items to display</p>
+      )}
 
 
 
